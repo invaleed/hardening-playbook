@@ -1,0 +1,80 @@
+---
+
+# defaults file for ubuntu-18.04-cis-benchmark-for-ansible
+
+# Profile Applicability - Set to 'server' or 'workstation' (default = server); see CIS documentation for more information.
+profile: server
+
+# Security Level - Set to '1' or '2' (default = 2); see CIS documentation for more information.
+level: 2
+
+# Enable AIDE Filesystem Integrity Checking - Set to 'enabled' or 'disabled' (default = enabled)
+aide: enabled
+
+# Set GRUB Superuser - Specify the superuser for GRUB (default = ubuntu)
+grub_superuser: ubuntu
+
+# Set GRUB Password - Set the CRYPTED password for the GRUB superuser or leave it set to 'disabled' to skip this benchmark (default = disabled). Use the command 'grub-mkpasswd-pbkdf2' in Linux to generate a new password.
+grub_password: disabled
+
+# Set ROOT Password - Set the CRYPTED root password or leave it set to 'disabled' to skip this benchmark (default = disabled). Use the command 'mkpasswd --method=sha-512' in Linux to generate a new password.
+root_password: disabled
+
+# Enable Mandatory Access Contorl - Set to 'selinux', 'apparmor', or 'disabled' (default = apparmor).
+access_control: apparmor
+
+# SELinux Mode - Set to 'enforing' or 'passive' (default = enforcing).
+selinux_mode: enforcing
+
+# Time Synchronization Package - Set to 'chrony' or 'ntp' (default = chrony).
+time_sync_package: chrony
+
+# IPv4 IP Forwarding - Set to '1' if Docker is installed per https://docs.docker.com/engine/userguide/networking/default_network/container-communication (default = 0).
+net_ipv4_ip_forward: 0
+
+# IPv6 - Set to 'enabled' or 'disabled' depending on wheter you use IPv6 (default = disabled).
+ipv6: disabled
+
+# IPtables - Set to 'enabled' or 'disabled' depending on wheter you are using another host based firewall such as AWS Security Groups (default = disabled).
+iptables: disabled
+
+# Maximum File Size of Logs - Set the prefered max file size of logs in MBs before it's rotated (default = 100).
+max_log_file_auditd: 100
+
+# No-Space-Left Action - Set the prefered action when auditd runs our of space (default = halt). See auditd man file for more information.
+no_space_left_action: halt
+
+# Log Retention - Set to 'keep_logs' indefinietly or 'rotate' to rotate logs over time (default = keep_logs).
+max_log_file_action: keep_logs
+
+# Remote Logging - Set to 'enabled', or 'disabled' if you are using a a non-native log collector (default = enabled).
+remote_logging: enabled
+
+# Prefered Syslog Package - Set to 'rsyslog' or 'syslog-ng' if using native logging (default = rsyslog).
+syslog_package: rsyslog
+
+# Remote Logs Host Address - Set IP address of the remote log server. The IP address below is for example only.
+remote_logs_host_address: 192.168.1.1
+
+# Log Host - Set to 'disabled', or 'enabled' depending on if the host will be a log host for ther systems (default = disabled).
+log_host: disabled
+
+# Pasword Re-use - Set to the maximum number of passwords to remember to deny reuse (default = 5).
+remember_passwords: 5
+
+# Max Password Age - Set to the maximum password age in days (default = 365).
+max_password_age: 365
+
+# Min Password Age - Set to the minimum password age in days (default = 7).
+min_password_age: 7
+
+# Benchmark Sections
+initial_setup: true
+services: true
+network_configuration: true
+logging_and_auditing: true
+access_authentication_and_authorizatoin: true
+system_maintenance: true
+
+# This is an optional set of task that furture secure the OS' configuraiton beyond CIS' benchmarks (default = false).
+extras: true
