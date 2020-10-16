@@ -12,7 +12,7 @@ level: 2
 aide: enabled
 
 # Set GRUB Superuser - Specify the superuser for GRUB (default = ubuntu)
-grub_superuser: ubuntu
+grub_superuser: ramadoni
 
 # Set GRUB Password - Set the CRYPTED password for the GRUB superuser or leave it set to 'disabled' to skip this benchmark (default = disabled). Use the command 'grub-mkpasswd-pbkdf2' in Linux to generate a new password.
 grub_password: disabled
